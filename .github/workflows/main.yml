@@ -1,6 +1,13 @@
 name: Discord notification
-env:
-  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-uses: Ilshidur/action-discord@master
-with:
-  args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+run-name: ${{ github.actor }} inform that he push on a branch
+on: [push]
+jobs:
+  Send Notification:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Je test le print"
+    env:
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+    uses: Ilshidur/action-discord@master
+    with:
+    args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
