@@ -5,5 +5,6 @@ jobs:
   Send Notification:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Je test le print"
+      run: echo "Je test le print"
+      run: echo "On bosse dur"
     
